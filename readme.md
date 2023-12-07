@@ -15,7 +15,7 @@ Una vez tengas los cuatro proyectos hechos los uniremos en el `index.html` y fun
 Desde el index se podrá acceder a cada página, y habrá cambios si está dentro de la página o en el `index.html`.
 
 Aquí puedes ver el ejemplo:
-`https://carlosdiazgirol.github.io/dashboard/`
+https://carlosdiazgirol.github.io/dashboard/
 
 Es un ejemplo de como lo puedes hacer pero puedes dar rienda suelta tu imaginación, siempre y cuando cumplas con los objetivos. Simepre puedes añadir más funcionalidades si lo deseas.
 
