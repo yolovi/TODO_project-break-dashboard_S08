@@ -25,10 +25,9 @@ const printInfoWeather = (forecast_data) => {
   const forecastLocation = forecast_data.location;
   const forecastCondition = forecastCurrent.condition;
   const forecastTemp = forecastCurrent.temp_c;
-  const forecastHours = forecast_data.forecast.forecastday[0].hour
+  const forecastHours = forecast_data.forecast.forecastday[0].hour;
 
-
-  console.log(forecastHours)
+  console.log(forecastHours);
 
   cityNameDiv.innerHTML = `
     <p>${forecastLocation.name} / ${forecastLocation.country}</p>
@@ -53,12 +52,21 @@ const printInfoWeather = (forecast_data) => {
   //   <p>Viento</p>
   //   `;
 
-  infoWeatherHoursDiv.innerHTML += `
+  forecastHours.forEach((hour) => {
+    const time = hour.time.slice(10, 13)
+
+    infoWeatherHoursDiv.innerHTML += `
  <div>
+    <span>${time}</span>
+    <img src="${hour.condition.icon}" alt="${forecastCondition.text} icon">
+    <span> ${hour.temp_c} Cº</span>
 
  </div> 
   <p>tiempo por horas</p>
-  `
+  `;
+  });
+
+  
 };
 
 const getForecastCity = async () => {
