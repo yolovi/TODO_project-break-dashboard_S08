@@ -20,33 +20,15 @@ const endpointGetForecast = `${APIUrl}/forecast.json?key=${APIKey}&q=${city}&aqi
 
 //FUNCTIONS
 
-// const getWeatherIcon = async () => {
-//   try {
-//     const res = await fetch(APIIcons);
-//     if (res.ok) {
-//         const icons = await res.json()
-//       console.log(icons);
-
-//       icons.forEach(element => {
-//         console.log(element)
-//       });
-//     //   infoWeatherDiv.innerHTML = `<img src="" alt"icon">`
-//     }
-//   } catch (error) {
-//     console.error(error);
-//     throw error;
-//   }
-// };
-
-// getWeatherIcon()
-
 const printInfoWeather = (forecast_data) => {
   const forecastCurrent = forecast_data.current;
   const forecastLocation = forecast_data.location;
   const forecastCondition = forecastCurrent.condition;
   const forecastTemp = forecastCurrent.temp_c;
+  const forecastHours = forecast_data.forecast.forecastday[0].hour
 
-  //console.log(forecastCurrent.humidity)
+
+  console.log(forecastHours)
 
   cityNameDiv.innerHTML = `
     <p>${forecastLocation.name} / ${forecastLocation.country}</p>
@@ -56,18 +38,27 @@ const printInfoWeather = (forecast_data) => {
   infoWeatherDiv.innerHTML += `
   <img src="${forecastCondition.icon}" alt="${forecastCondition.text} icon">
   <span>${forecastTemp} <img class="icon-celsius" src="../assets/img/celsius-icon.png" alt"celsius icon"></span>
+
+    <div class="info-detail">
+        <p>Precipitaciones: ${forecastCurrent.precip_in}%</p>
+        <p>Humedad: ${forecastCurrent.humidity}%</p>
+        <p>Viento: ${forecastCurrent.wind_kph} km/h</p>
+    </div>
   `;
 
-  infoWeatherDetail.innerHTML += `
-  <p>hola</p>
-  `;
+  //FIXME: porque no lo pinta
+  //   infoWeatherDetail.innerHTML += `
+  //   <p>Precipitaciones</p>
+  //   <p>Humedad</p>
+  //   <p>Viento</p>
+  //   `;
 
+  infoWeatherHoursDiv.innerHTML += `
+ <div>
 
-//   infoWeatherDetail.innerHTML = `
-//   <p>Precipitaciones:  ${forecastCurrent.humidity}</p>
-//   <p>Humedad:</p>
-//   <p>Viento:</p>
-//   `;
+ </div> 
+  <p>tiempo por horas</p>
+  `
 };
 
 const getForecastCity = async () => {
