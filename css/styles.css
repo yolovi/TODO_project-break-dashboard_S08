@@ -52,3 +52,19 @@ table {
 .icon-celsius{
     width: 32px;
 }
+
+div {
+    border: 1px solid rgb(158, 196, 158);
+}
+
+
+/*--*/
+
+body {
+	background-color: rgb(202, 200, 197);
+	background-attachment: fixed; /*que hace?*/
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	transition: all 1s ease; /*que hace?*/
+}

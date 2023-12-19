@@ -4,12 +4,6 @@ const btnAddLink = document.getElementById("btn-add-link");
 const linksSavedDiv = document.getElementById("links-saved-div");
 const linksSavedUl = document.getElementById("links-saved-ul");
 
-//funcion que guardará en el local storage como clave:name y valor: el que escriba el usuario en el input.
-//Además, al mismo tiempo creará un li en la ul linksSavedUl y será un <a href>
-//además tendrá un botón eliminar (eliminará el li y también ese elemento del local storage)
-//ejemplo : <a href="#">nombre <button>x</button></a>
-//por ultimo: limpiar los inputs
-
 let linkName;
 let linkUrl;
 let indexLink;
@@ -20,7 +14,7 @@ const printLinkUl = () => {
 
   //con un bucle recorre el array localStorageGet crea el li con un a y un button
   localStorageGet.forEach((link, i) => {
-    linksSavedUl.innerHTML += `<li><a href=${link.url}> ${link.name} </a> <button class="btn-delete" id= "index${i}">x</button></li>`;
+    linksSavedUl.innerHTML += `<li><a href=${link.url} target="_blank"> ${link.name}  </a> <button class="btn-delete" id= "index${i}">x</button></li>`;
   });
 };
 

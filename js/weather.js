@@ -1,4 +1,4 @@
-// GET Items (API, elements DOM)
+// GET Items DOM
 const cityNameDiv = document.getElementById("city-name-div");
 const infoWeatherDiv = document.getElementById("info-weather-div");
 const infoWeatherHoursDiv = document.getElementById("info-weather-hours-div");
@@ -6,6 +6,7 @@ const infoWeatherDetail = document.getElementById("info-weather-detail");
 
 console.log(infoWeatherDetail);
 
+//Api variables
 const APIUrl = "https://api.weatherapi.com/v1";
 const APIKey = "c27b357da65c440694094147231512";
 
@@ -20,14 +21,13 @@ const endpointGetForecast = `${APIUrl}/forecast.json?key=${APIKey}&q=${city}&aqi
 
 //FUNCTIONS
 
+
 const printInfoWeather = (forecast_data) => {
   const forecastCurrent = forecast_data.current;
   const forecastLocation = forecast_data.location;
   const forecastCondition = forecastCurrent.condition;
   const forecastTemp = forecastCurrent.temp_c;
   const forecastHours = forecast_data.forecast.forecastday[0].hour;
-
-  console.log(forecastHours);
 
   cityNameDiv.innerHTML = `
     <p>${forecastLocation.name} / ${forecastLocation.country}</p>
@@ -46,11 +46,11 @@ const printInfoWeather = (forecast_data) => {
   `;
 
   //FIXME: porque no lo pinta
-  //   infoWeatherDetail.innerHTML += `
-  //   <p>Precipitaciones</p>
-  //   <p>Humedad</p>
-  //   <p>Viento</p>
-  //   `;
+    // infoWeatherDetail.innerHTML += `
+    // <p>Precipitaciones</p>
+    // <p>Humedad</p>
+    // <p>Viento</p>
+    // `;
 
   forecastHours.forEach((hour) => {
     const time = hour.time.slice(10, 13)
@@ -62,10 +62,8 @@ const printInfoWeather = (forecast_data) => {
     <span> ${hour.temp_c} Cº</span>
 
  </div> 
-  <p>tiempo por horas</p>
   `;
   });
-
   
 };
 
@@ -74,7 +72,6 @@ const getForecastCity = async () => {
     const res = await fetch(endpointGetForecast);
     if (res.ok) {
       const forecast_data = await res.json();
-      console.log(forecast_data);
       printInfoWeather(forecast_data);
     }
   } catch (error) {
