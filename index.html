@@ -8,8 +8,8 @@
     <title>Project Break S08</title>
 </head>
 
-<body id="body-index">
-    <header>
+<body id="body-index" class="body-index">
+    <header class="header-index">
         <nav>
             <a href="./pages/digital-clock.html">Reloj digital</a>
             <a href="./pages/key-generator.html">Generador de contraseñas</a>
@@ -17,12 +17,32 @@
             <a href="./pages/weather.html">El tiempo</a>
         </nav>
     </header>
+    <main class="main-index">
+        <section class="clock-container"></section>
+        <section class="key-generator-container">
+            <div class="title">
+                <h2>Crea tu contraseña segura</h2>
+                <img class="icon locker" src="./assets/img/candado.png" alt="locker icon">
+            </div>
+            <div class="key-form">
+                <label for="length">Número de caracteres de la contraseña</label>
+                <h3>Escoge un número entre 12 y 50</h3>
+                <div>
+                    <input id="input-pass" type="number" min="12" max="50" value="12">
+                    <button id="btn-pass" class="btn-medium">Generar</button>
+                </div>
+            </div>
+            <div id="pass-field"></div>
+        </section>
+        <section class="links-container"></section>
+        <section class="weather-container"></section>
+    </main>
 
     <script src="./js/main.js"></script>
     <!-- <script src="../js/digital-clock.js"></script>
+        <script src="../js/weather.js"></script> 
+        <script src="../js/links.js"></script>-->
     <script src="../js/key-generator.js"></script>
-    <script src="../js/links.js"></script>
-    <script src="../js/weather.js"></script> -->
 
 </body>
 

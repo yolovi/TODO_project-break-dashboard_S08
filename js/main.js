@@ -28,7 +28,8 @@ const arrImgPush = (route) => {
 
 arrImgPush(routeImgWhite)
 
-//TODO:exportar la función para poder usarla en los demas js segun conveniencia
+//TODO: mejorar la función para que el random no se repita varias veces seguidas
+
 const changeBackground = (element, route) => {
     const randomNumber = Math.floor(Math.random() * arrImgs.length)
     const randomBackground = `${route}${[randomNumber]}.jpg`

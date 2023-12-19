@@ -48,23 +48,92 @@ table {
 }
 
 /*---------------------*/
-
-.icon-celsius{
-    width: 32px;
-}
+/*var*/
+ 
+:root {
+	--primary-color: black;
+	--secondary-color: rgb(203, 167, 34);
+	--primary-font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	--secondary-font: 'Times New Roman', Times, serif;
+  }
 
 div {
     border: 1px solid rgb(158, 196, 158);
 }
 
-
-/*--*/
-
 body {
+	font-family: var(--primary-font);
 	background-color: rgb(202, 200, 197);
 	background-attachment: fixed; /*que hace?*/
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
 	transition: all 1s ease; /*que hace?*/
+}
+
+.main-index{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.icon {
+	filter: invert(1);
+}
+
+.icon.locker {
+	width: 0.8em;
+	height: 0.8em;
+}
+
+.icon-celsius{
+    width: 32px;
+}
+
+.key-generator-container {
+	max-width: 400px;
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	padding: 15px;
+	gap: 10px;
+	background-color: rgb(0, 0, 0, 0.5);
+	color: white;
+	border-radius: 15px;
+}
+
+.title {
+	font-size: 1.6em;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.key-form {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	padding: 10px;
+}
+
+.key-form label{
+	font-size: 1.3em;
+}
+
+.key-form input {
+	height: 28px;
+	border-radius: 5px;
+	border: none;
+	text-align: center;
+}
+
+.btn-medium {
+	width: 180px;
+	height: 30px;
+	border-radius: 5px;
+	border: none;
+	background-color: var(--secondary-color);
+	color: white;
 }
